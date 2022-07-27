@@ -23,6 +23,7 @@ func init() {
 }
 
 func getCounters(w http.ResponseWriter, r *http.Request) {
+	hostname(w)
 	iter := redisClient.Scan(0, "counter:*", 0).Iterator()
 	count := make(map[string]int64)
 	for iter.Next() {
@@ -37,6 +38,7 @@ func getCounters(w http.ResponseWriter, r *http.Request) {
 }
 
 func setCounter(w http.ResponseWriter, r *http.Request) {
+	hostname(w)
 	key := r.FormValue("key")
 	if key == "" {
 		w.WriteHeader(http.StatusBadRequest)
@@ -54,7 +56,15 @@ func setCounter(w http.ResponseWriter, r *http.Request) {
 }
 
 func health(w http.ResponseWriter, r *http.Request) {
+	hostname(w)
 	w.WriteHeader(http.StatusOK)
+}
+
+func hostname(w http.ResponseWriter) {
+	hostname, err := os.Hostname()
+	if err == nil {
+		w.Header().Add("hostname", hostname)
+	}
 }
 
 func main() {
