@@ -17,7 +17,10 @@ resource "google_compute_firewall" "app" {
 
   allow {
     protocol = "tcp"
-    ports    = ["8080", "22"]
+    ports    = [
+      "8080",
+      # "22" uncomment this line for ssh access to instances
+    ]
   }
   source_ranges = ["0.0.0.0/0"]
   target_tags = ["web-app"]

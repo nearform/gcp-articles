@@ -35,9 +35,11 @@ resource "google_compute_instance_template" "instance_template" {
   network_interface {
     network    = google_compute_network.vpc.self_link
     subnetwork = google_compute_subnetwork.app.self_link
-    access_config {
-      network_tier = "STANDARD"
-    }
+    
+    # uncoment this block for set external IPs to instances
+    # access_config {
+    #   network_tier = "STANDARD"
+    # }
   }
 
   metadata_startup_script = <<-USERDATA
