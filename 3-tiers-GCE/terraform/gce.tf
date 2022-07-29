@@ -35,7 +35,7 @@ resource "google_compute_instance_template" "instance_template" {
   network_interface {
     network    = google_compute_network.vpc.self_link
     subnetwork = google_compute_subnetwork.app.self_link
-    
+
     # uncoment this block for set external IPs to instances
     # access_config {
     #   network_tier = "STANDARD"
@@ -74,7 +74,7 @@ resource "google_compute_region_instance_group_manager" "app" {
 
   auto_healing_policies {
     health_check      = google_compute_health_check.app.id
-    initial_delay_sec = 300
+    initial_delay_sec = 120
   }
 
   named_port {
