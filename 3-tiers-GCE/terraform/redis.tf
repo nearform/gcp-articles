@@ -16,7 +16,7 @@ resource "google_redis_instance" "data" {
   name               = "${var.app_name}-redis"
   region             = var.region
   tier               = "BASIC"
-  memory_size_gb     = var.regis_memory_size_gb
+  memory_size_gb     = var.redis_memory_size_gb
   authorized_network = google_compute_network.vpc.id
   connect_mode       = "PRIVATE_SERVICE_ACCESS"
 }

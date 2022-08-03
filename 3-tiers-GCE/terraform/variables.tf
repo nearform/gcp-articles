@@ -25,10 +25,6 @@ variable "app_machine_type" {
   default = "e2-small"
 }
 
-variable "app_disk_size_gb" {
-  default = 10
-}
-
-variable "regis_memory_size_gb" {
+variable "redis_memory_size_gb" {
   default = 1
 }

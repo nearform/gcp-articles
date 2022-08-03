@@ -9,12 +9,11 @@ resource "google_compute_network" "vpc" {
 resource "google_compute_subnetwork" "app" {
   name          = "app-subnetwork"
   ip_cidr_range = "10.2.0.0/16"
-  region        = "us-central1"
+  region        = var.region
   network       = google_compute_network.vpc.id
   secondary_ip_range {
     range_name    = "services-range"
     ip_cidr_range = "10.3.0.0/22"
-
   }
 
   secondary_ip_range {

@@ -5,7 +5,7 @@ resource "google_service_account" "app" {
 
 resource "google_container_cluster" "k8s_cluster" {
   name     = "${var.app_name}-k8s-cluster"
-  location = "us-central1"
+  location = var.region
 
   network = google_compute_network.vpc.id
   subnetwork = google_compute_subnetwork.app.id
@@ -24,7 +24,7 @@ resource "google_container_cluster" "k8s_cluster" {
 
 resource "google_container_node_pool" "k8s_cluster_preemptible_nodes" {
   name       = "${var.app_name}-node-pool"
-  location   = "us-central1"
+  location   = var.region
   cluster    = google_container_cluster.k8s_cluster.name
   node_count = 1
 
