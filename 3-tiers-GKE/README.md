@@ -9,6 +9,7 @@ The infrastructure is mainly composed by the following resources:
 - A redis instance to store data ([redis.tf](terraform/redis.tf))
 - A Kubernetes deployment, service, secret, and load balancer for running the appplication ([gke.tf](terraform/gke.tf))
 
+![alt text](../assets/GKE.png "GCE Solution Tolpology")
 
 ## Pre-requisites
 For run this solition you must to have [terraform](https://www.terraform.io/) and [gcloud cli](https://cloud.google.com/sdk/docs/install) and then run the [setup.sh](setup.sh)
