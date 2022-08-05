@@ -12,6 +12,7 @@ The infrastructure is composed mainly by the following resources:
 
 ## Pre-requisites
 For run this solition you must to have [terraform](https://www.terraform.io/) and [gcloud cli](https://cloud.google.com/sdk/docs/install) and then run the [setup.sh](setup.sh)
+
 ```bash
 export TF_VAR_project_id=<Your Project Id>
 ./setup.sh
