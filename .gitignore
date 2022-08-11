@@ -2,3 +2,5 @@
 terraform.tfstate*
 3t-app
 *.zip
+
+.DS_Store
